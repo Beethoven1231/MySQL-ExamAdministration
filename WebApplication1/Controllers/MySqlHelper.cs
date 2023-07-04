@@ -8,12 +8,12 @@ namespace WebApplication1.Controllers
         {
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
             MySqlConnection connection;
-            // 本机用户名称
+            // 用户名称
             builder.UserID = "root";
-            // 本机用户密码
+            // 用户密码
             builder.Password = "123456";
-            // 服务器(本机)
-            builder.Server = "localhost";
+            // 服务器
+            builder.Server = "120.55.93.5";
             builder.Database = "new_schema";
             connection = new MySqlConnection(builder.ConnectionString);
             //打开数据库连接
