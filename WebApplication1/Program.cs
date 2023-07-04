@@ -13,8 +13,20 @@ namespace WebApplication1
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("any", builder =>
+                {
+                    builder.SetIsOriginAllowed(o => new Uri(o).Host == "localhost")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
+
             var app = builder.Build();
 
+            app.UseCors("any");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
