@@ -47,7 +47,7 @@ namespace WebApplication1.Controllers
             try
             {
                 MySqlConnection connection = MySqlHelper.GetConnection();
-                string sql = string.Format("update new_schema.schooltable set name = {1} where (id = {0});", id, name);
+                string sql = string.Format("update new_schema.schooltable set name = '{0}' where (id = {1});", name, id);
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = sql;
                 cmd.ExecuteNonQuery();
